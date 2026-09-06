@@ -47,10 +47,8 @@ rl.question('[?] Vui lòng nhập Token Discord của bạn: ', (token) => {
             type: 'WATCHING',
             application_id: APPLICATION_ID,
             details: customStatus,
-            // Đã xóa phần 'state' ở đây để làm mất dòng chữ Vingotsoda Status
             assets: {
               large_image: IMAGE_URL
-              // Đã xóa phần 'large_text'
             }
           }]
         });
