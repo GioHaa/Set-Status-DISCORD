@@ -6,7 +6,7 @@ const { Client } = require('discord.js-selfbot-v13');
 const readline = require('readline');
 
 const APPLICATION_ID = '1546123981894193172'; 
-const IMAGE_URL = 'dán link ảnh vào đây'; 
+const IMAGE_URL = 'https://cdn.discordapp.com/attachments/1482256825117315155/1546133406671446129/image.jpg?ex=6a9eac71&is=6a9d5af1&hm=63671a3259b7d3246ce7192aa9cffff52b5d99ea982b20c6ed161ebe4f809dad&'; 
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -60,7 +60,7 @@ rl.question('[?] Vui lòng nhập Token Discord của bạn: ', (token) => {
 
           client.user.setPresence({
             activities: [{
-              name: 'Vingotsoda',
+              name: '..',
               type: activityType,
               application_id: APPLICATION_ID,
               details: customStatus,
