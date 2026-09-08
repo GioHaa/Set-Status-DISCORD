@@ -2,11 +2,11 @@
 // Bản quyền thuộc về vingotsoda
 // ==========================================
 
-const { Client } = require('discord.js-selfbot-v13');
+const { Client, RichPresence } = require('discord.js-selfbot-v13');
 const readline = require('readline');
 
 const APPLICATION_ID = '1546123981894193172'; 
-const IMAGE_URL = 'https://cdn.discordapp.com/attachments/1482256825117315155/1546133406671446129/image.jpg?ex=6a9eac71&is=6a9d5af1&hm=63671a3259b7d3246ce7192aa9cffff52b5d99ea982b20c6ed161ebe4f809dad&'; 
+const IMAGE_URL = 'https://cdn.discordapp.com/attachments/1482256825117315155/1546133406671446129/image.jpg?ex=6aa0a6b1&is=6a9f5531&hm=fa87cba168e43d9944dde6de42b9988f1153f106484386356f33708304845e0e&'; 
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -14,14 +14,14 @@ const rl = readline.createInterface({
 });
 
 const watermark = `
-██╗   ██╗██╗███╗   ██╗ ██████╗  ██████╗ ████████╗███████╗ ██████╗ ██████╗  █████╗ 
+██╗   ██╗██║███╗   ██╗ ██████╗  ██████╗ ████████╗███████╗ ██████╗ ██████╗  █████╗ 
 ██║   ██║██║████╗  ██║██╔════╝ ██╔═══██╗╚══██╔══╝██╔════╝██╔═══██╗██╔══██╗██╔══██╗
 ██║   ██║██║██╔██╗ ██║██║  ███╗██║   ██║   ██║   ███████╗██║   ██║██║  ██║███████║
 ╚██╗ ██╔╝██║██║╚██╗██║██║   ██║██║   ██║   ██║   ╚════██║██║   ██║██║  ██║██╔══██║
- ╚████╔╝ ██║██║ ╚████║╚██████╔╝╚██████╔╝   ██║   ███████║╚██████╔╝██████╔╝██║  ██║
-  ╚═══╝  ╚═╝╚═╝  ╚════╝  ╚════╝    ╚═╝   ╚══════╝  ╚═════╝  ╚═════╝  ╚═╝  ╚═╝
+╚████╔╝ ██║██║ ╚████║╚██████╔╝╚██████╔╝   ██║   ███████║╚██████╔╝██████╔╝██║  ██║
+╚═══╝  ╚═╝╚═╝  ╚════╝  ╚════╝    ╚═╝   ╚══════╝  ╚═════╝  ╚═════╝  ╚═╝  ╚═╝
 ==================================================================================
-                     TOOL RICH PRESENCE BY VINGOTSODA
+                 TOOL RICH PRESENCE BY VINGOTSODA
 ==================================================================================
 `;
 
@@ -58,17 +58,15 @@ rl.question('[?] Vui lòng nhập Token Discord của bạn: ', (token) => {
         try {
           const customStatus = statusText.trim() ? statusText.trim() : 'cách chơi bạn';
 
-          client.user.setPresence({
-            activities: [{
-              name: '..',
-              type: activityType,
-              application_id: APPLICATION_ID,
-              details: customStatus,
-              assets: {
-                large_image: IMAGE_URL
-              }
-            }]
-          });
+          const presence = new RichPresence(client)
+            .setApplicationId(APPLICATION_ID)
+            .setType(activityType)
+            .setName('..')
+            .setDetails(customStatus)
+            .setAssetsLargeImage(IMAGE_URL)
+            .addButton('PROFILE', 'https://tools.vingotsoda.workers.dev/');
+
+          client.user.setPresence({ activities: [presence] });
 
           console.log(`[!] Vingotsoda / Đã cập nhật Rich Presence thành công (Kiểu: ${activityType})!`);
           console.log('[!] Vui lòng treo nguyên cửa sổ đen này để duy trì trạng thái.');
