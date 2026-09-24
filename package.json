@@ -11,11 +11,14 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "discord.js-selfbot-rpc": "^1.0.1",
     "discord.js-selfbot-v13": "^3.7.1",
     "undici": "5.28.4"
   },
   "pkg": {
     "assets": [],
-    "targets": ["node18-win-x64"]
+    "targets": [
+      "node18-win-x64"
+    ]
   }
 }
