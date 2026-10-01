@@ -100,7 +100,8 @@ async function batDauBot(token, loaiTrangThai, streamUrl) {
         .setAssetsSmallImage(pathGifNho) 
         .setAssetsSmallText('dsc.gg/exxgh')
         .setParty({ max: PARTY_MAX, current: PARTY_CURRENT })
-        .addButton('DUONG VAO TIM ANH (AN VAO)', 'https://tools.vingotsoda.workers.dev/');
+        .addButton('myself.', 'dán link vào đây')
+        .addButton('home.', 'dán link vào đây');
 
       if (loaiTrangThai === 'STREAMING' && streamUrl) {
         presence.setURL(streamUrl);
