@@ -1,5 +1,5 @@
 // ==========================================
-// Bản quyền thuộc về vingotsoda
+// Bản quyền thuộc về vingotsoda / Mn tự chỉnh sửa theo ý của mọi người nhé!
 // ==========================================
 
 const { Client, RichPresence } = require('discord.js-selfbot-v13');
